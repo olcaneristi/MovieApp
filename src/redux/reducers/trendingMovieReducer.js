@@ -11,12 +11,12 @@ const initialState = {
   favorites: [],
   loading: false,
 };
-const movieReducers = (state = initialState, action) => {
+const trendingMovieReducer = (state = initialState, action) => {
   switch (action.type) {
     case GET_MOVIES_REQUEST:
       return {
+        ...state,
         loading: true,
-        movies: [],
       };
 
     case GET_MOVIES_SUCCESS:
@@ -44,4 +44,4 @@ const movieReducers = (state = initialState, action) => {
       return state;
   }
 };
-export default movieReducers;
+export default trendingMovieReducer;
