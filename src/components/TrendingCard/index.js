@@ -1,14 +1,14 @@
 import React from 'react';
-import { View, Image, TouchableOpacity } from 'react-native';
+import { View, Image, TouchableOpacity, Dimensions, Animated, SafeAreaView } from 'react-native';
 import { SharedElement } from 'react-navigation-shared-element';
 import { styles } from '../../styles/components/movieCard.styles';
 
 const IMAGE_URL = 'https://image.tmdb.org/t/p/w342';
 const BACKDROP_URL = 'https://image.tmdb.org/t/p/w780';
 
-const MovieCard = ({ item, index, navigation }) => {
+const TrendingCard = ({ item, navigation }) => {
   return (
-    <View style={[styles.container]}>
+    <View style={styles.container}>
       <TouchableOpacity
         activeOpacity={0.7}
         onPress={() => navigation.push('Details', { item, IMAGE_URL, BACKDROP_URL })}
@@ -20,7 +20,7 @@ const MovieCard = ({ item, index, navigation }) => {
                 uri: IMAGE_URL + item.poster_path,
               }}
               resizeMode="cover"
-              style={styles.image}
+              style={{ height: 330, borderRadius: 10 }}
             />
           </SharedElement>
         </View>
@@ -29,4 +29,4 @@ const MovieCard = ({ item, index, navigation }) => {
   );
 };
 
-export default MovieCard;
+export default TrendingCard;

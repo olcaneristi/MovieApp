@@ -1,29 +1,24 @@
-import React, { useEffect } from 'react';
-import { View, Text, StyleSheet, FlatList } from 'react-native';
-import { useSelector, useDispatch } from 'react-redux';
-import { getMovies } from '../../redux/actions/movieActions';
-import MovieCard from '../../components/MovieCard';
+import React from 'react';
+import { ScrollView, StatusBar } from 'react-native';
+import AllTimeBest from '../../components/Movie/allTimeBest';
+import TopRated from '../../components/Movie/topRated';
+import Trending from '../../components/Movie/trending';
+import Upcoming from '../../components/Movie/upcoming';
+import Popular from '../../components/Movie/popular';
+import Header from '../../components/Header';
 
 const Movies = () => {
-  const { movies, loading, error } = useSelector(state => state.movieReducers);
-  const dispatch = useDispatch();
-  const fetchMovies = () => dispatch(getMovies());
-
-  useEffect(() => {
-    fetchMovies();
-  }, []);
-
-  const renderMovies = ({ item }) => <MovieCard item={item} />;
-
-  return movies && <FlatList data={movies} keyExtractor={item => item.id.toString()} renderItem={renderMovies} />;
+  return (
+    <ScrollView bounces={false} style={{ backgroundColor: '#0f0f1a' }} showsVerticalScrollIndicator={false}>
+      <StatusBar barStyle="light-content" />
+      <Header />
+      <Trending />
+      <Popular />
+      <Upcoming />
+      <TopRated />
+      <AllTimeBest />
+    </ScrollView>
+  );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-});
 
 export default Movies;
