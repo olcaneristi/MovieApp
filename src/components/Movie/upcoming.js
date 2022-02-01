@@ -51,13 +51,15 @@ export default function Upcoming() {
         containerStyle={{ position: 'absolute', bottom: 5, left: 0, right: 0 }}
         dotContainerStyle={{ marginHorizontal: 5 }}
         dotStyle={{
-          width: 9,
+          width: 20,
           height: 9,
           borderRadius: 5,
           backgroundColor: '#E82626',
         }}
         inactiveDotStyle={{
           backgroundColor: 'rgba(255,255,255, 1)',
+          width:9,
+          height:9,
         }}
         inactiveDotScale={1}
         inactiveDotOpacity={1}
